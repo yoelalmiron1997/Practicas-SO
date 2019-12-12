@@ -1,0 +1,12 @@
+Hacer un script que reciba como parámetro un directorio cualquiera, y calcule el tamaño
+de cada uno de sus archivos (ya sean ordinarios o directorios), además contabilizar cuanto
+archivos ordinarios y directorios hay.
+
+#!/bin/bash
+total=$(du -s $1 | cut -d "/" -f1)
+archivos=$(find $1 -type f | wc -l)
+directorio=$(find $1 -type d | wc -l)
+
+echo "Tamanio de la carpeta Total: $total"
+echo "Catidad de archivos: $archivos"
+echo "Cantidad de directorios: $directorio"
