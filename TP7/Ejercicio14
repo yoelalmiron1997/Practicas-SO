@@ -1,0 +1,13 @@
+Hacer un script que me determínela cantidad de particiones del disco, y ademas informe
+el tamaño de la partición de booteo y de la partición de intercambio. (Comando fdisk)
+
+#!/bin/bash
+
+echo "El tamanio de la particion de booteo:"
+fdisk -l | awk -F" " '{print $6}'|tail -3|head -1
+echo "El de la particion del swap"
+fdisk -l | awk -F" " '{print $6}'|tail -1
+echo "La cantidad Total de Particiones del Disco"
+fdisk -l| awk '{print $1}'|tail -3 |wc -l
+
+
