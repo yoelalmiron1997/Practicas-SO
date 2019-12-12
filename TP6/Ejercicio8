@@ -1,0 +1,7 @@
+Hacer un script que me informe usuarios conectados al servidor, tiempo de encendido el
+equipo y el promedio de carga del mismo en los últimos 5, 10 y 15 minutos. ( uptime ) 
+
+#!/bin/bash
+
+uptime | awk 'BEGIN{print "Tiempo de encendido"}{print $1}'
+uptime | awk 'BEGIN{print "Promedio"} {print $10,$11,$12}'
