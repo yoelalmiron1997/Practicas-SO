@@ -1,0 +1,14 @@
+Hacer un scripts que me informe:
+a) Los procesos esperando por CPU
+b) El número de procesos en estado dormido
+c) Si dichos proceso están usando memoria swap
+d) La cantidad de memoria intercambiada desde el disco
+e) La cantidad de memoria intercambiada hacia el disco.
+
+#!/bin/bash
+
+vmstat | awk 'BEGIN {print "Numero de procesos esperando por CPU"}{print $1}' | tail -1
+vmstat | awk 'BEGIN {print "Numero de proceso en estado dormido"}{print $2}'| tail -1
+vmstat | awk 'BEGIN {print "Proceso que estan usando memoria swap"} {print $3}'
+vmstat | awk  'BEGIN {print "La cantidad de memoria intercambiada desde el disco"} {print $7}'
+vmstat | awk 'BEGIN {print "La cantidad de memoria intercambiada hacia el disco"} {print $8}'
