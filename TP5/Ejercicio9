@@ -1,0 +1,37 @@
+Hacer un scripts que me deje en un archivo de nombre “mem-actual” el estado de la memoria actual, y en un archivo
+de nombre “mem-limpia” el estado luego de ejecutar el comando de liberación de memoria. El scripts me debe solicitar
+al ejecutarlo que tipo de nivel de liberación quiero hacer al ejecutar el comando que corresponde a tal fin. A
+continuación se especifican los valores a pasarle al comando de liberación de memoria:
+0: No liberara absolutamente nada de nuestra memoria cache.
+1: Forzamos a nuestro kernel a liberar la pagecache.
+2: Forzando a nuestro kernel a liberar los inodos y dentries.
+3: Forzando a nuestro kernel a liberar la pagecache, los inodos y las dentries
+
+#!/bin/bash
+
+echo "Elegi una opcion"
+        echo "1 no libera absolutamente nada de nuestra memoria cache"
+        echo "2 Forzamos a nuestro kernel a liberar la pagecache"
+        echo "3 Forzando a nuestro kernel a liberar los inodos y dentries"
+        echo "9 salir  echo "
+read entra
+
+        case $entra in
+        1)
+        sync; echo 0>/proc/sys/vm/drop_caches
+        exit
+        ;;
+        2)
+        sync; echo 1>/proc/sys/vm/drop_caches
+        exit
+        ;;
+        3)
+        sync; echo 2>/proc/sys/vm/drop_caches
+        exit
+        ;;
+        4)
+        sync; echo 3>/proc/sys/vm/drop_caches
+        exit
+        ;;
+        *)
+esac
