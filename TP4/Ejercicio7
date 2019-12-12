@@ -1,0 +1,27 @@
+Crear una rutina en lenguaje C donde se crea un proceso, como salida imprima el siguiente mensaje:
+Soy el padre, si estoy en proceso padre
+Soy el hijo , si estoy en proceso hijo
+
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+void main(){
+
+        int pid;
+        pid=fork();
+
+if(pid==-1){
+        printf("Error \n");
+
+}
+
+if(pid==0){
+        printf("Soy el hijo \n",getpid(),pid());while(1);
+}
+else{
+        printf("Soy el padre \n",getppid(),pid());while(1);
+}
+
+}
