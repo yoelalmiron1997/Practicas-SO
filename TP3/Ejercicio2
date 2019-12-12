@@ -1,0 +1,14 @@
+Implementar un script que cambie los permisos de todos los ejercicios (scripts) de la
+practica 2 que se encuentran en /documentos/practicas/tp2/ para que puedan ser
+ejecutados por otros y modificados por el grupo.
+find /documentos/practicas/tp2 -name '*.sh' -exec chmod 751 {} \;
+otra alternativa
+
+for i in tp2 /*; do
+
+       if [ -f $i -a -x $i ]; then
+       echo $i
+       chmod 744 $i
+       fi
+echo $i
+done
