@@ -1,0 +1,49 @@
+ Dada la siguiente tabla de páginas de un proceso, donde el tamaño de las mismas es de 1024Kbyte
+Nº Página Dirección de Inicio Bit de Validez
+P0 4096 1
+P1 8192 1
+P2 2048 0
+P3 6144 1
+P4 1.024 0
+Hacer un scripts que calcule la dirección física de las siguientes direcciones lógicas:
+a) página 0 desplazamiento 80
+b) página 3 desplazamiento 150
+c) página 1 desplazamiento 600
+d) página 4 desplazamiento 327
+e) pagina 2 desplazamiento 356
+
+#!/bin/bash
+
+echo "Los Resultados de los calculos son: ">>salida.txt
+echo "------------------------------------">>salida.txt
+echo "Se calcularon los archivos tablapagina y tablacalculo">>salida.txt
+echo "------------------------------------">>salida.txt
+
+if [ -e salida.txt ];then
+        rm salida.txt
+fi
+
+touch salida.txt
+
+tamanio=1024
+
+for i in $( seq 1 $(cat tablapagina|wc -l))
+do
+#tabla calculo,eje po,600
+pag=$(cat tablacalculo |awk -F"," '{print $1}'|head -$i|tail -1)
+desp=$(cat tablacalculo | awk -F"," '{print $2}'|head -$i|tail -1)
+#corto el bit de validez
+bit_validez=$(cat tablapagina|grep $pag|awk -F"," '{print $3}')
+
+        if [ "$bit_validez" = "1" ];then
+                if [ $desp -gt $tamanio ];then
+                echo "La Pagina no se puede calcular la $pag porque pasaria a otro semento $tamanio ">>salida.txt
+                else
+                direcc=$(cat tablapagina|grep $pag|awk -F"," '{print $2}')
+                direcfisica=$(($desp + $direcc))
+                echo "La direccion fisica de $pag es $direcfisica">>salida.txt
+                fi
+        else
+        echo "El bit de validez no es 1, por lo tanto no esta en disco">>salida.txt
+        fi
+done
