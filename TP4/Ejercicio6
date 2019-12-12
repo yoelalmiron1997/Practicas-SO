@@ -1,0 +1,14 @@
+Crear un script simple que genere una iteración de 1 a 10, por parámetro ingresar en que momento quiere
+cortar esa iteración y devolver el control del bash. (Sugerencias: comando “pgrep” y usar comando sleep
+como para retrasar la ejecución y observar el resultado ).
+
+#!/bin/bash
+
+for i in {1..10}; do
+        if [ $i == $1 ]; then
+                exit
+        else
+                echo "$i"
+                sleep 1
+        fi
+done
