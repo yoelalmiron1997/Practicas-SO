@@ -1,0 +1,17 @@
+Crear un script al cual se le pase como argumento un nombre de usuario y muestre los procesos que
+está ejecutando ese usuario. En caso de que no se pase ningún argumento, debe mostrar todos los
+procesos en ejecución, y en caso de que el usuario pasado como argumento sea root, mostrar un
+mensaje de error
+
+#!/bin/bash
+
+if [ -n "$1" ]; then
+        ps -U $1 -u $1
+        exit
+elif [ "root" = "$1" ]; then
+        echo "Error"
+        exit
+elif [ -z "$1" ]; then
+        ps aux
+        exit
+fi
