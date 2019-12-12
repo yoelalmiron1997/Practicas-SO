@@ -1,0 +1,10 @@
+Hacer un scripts que me permita correr el comando dmesg ( mensaje de diagnostico
+del nucleo de linux ) y poder ingresar por parámetro cualquiera de los siguientes filtros a
+dicho comando, como para tener información más detallada del diagnóstico buscado.
+
+#!/bin/bash
+
+dmesg | grep $1
+if [ !-n $(dmesg | grep $1) ]; then
+    echo"No se encontro nada bajo ej parametro $1"
+fi
