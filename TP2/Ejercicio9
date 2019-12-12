@@ -1,0 +1,11 @@
+Implementar un script usando la sentencia while, en donde se lea el archivo passwd línea por línea y
+se imprima el mismo por Terminal.
+#!/bin/bash
+a=1
+while [ $a != 0 ]
+do
+        cat /etc/passwd
+        let a=0
+done
+
+
