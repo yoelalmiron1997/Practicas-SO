@@ -1,0 +1,15 @@
+Dado el siguiente informe:
+Disposit. Inicio Comienzo Fin Bloques Id Sistema
+/dev/sda1 1 9728 78140128 7 HPFS/NTFS
+/dev/sdb1 1 9605 77152131 83 Linux
+/dev/sdb2 9606 9729 996030 82 Linux swap / Solaris
+Indicar:
+a- Cantidad de discos rígidos
+b- Indicar cantidad de particiones de cada disco
+c- Describir los tipos de particiones que se muestran
+
+--------------RESPUESTA-----------------------
+a)Hay 2 discos rigidos
+b)En el primer disco hay dos particiones, y en el segundo hay una sola
+c) La primera particion del primer disco es una partcion de windows, la segunda es una de particion de datos de linux
+   La particion del segundo disco es una de swap que comparte el mismo identificador de particion que solairs, otros so.
