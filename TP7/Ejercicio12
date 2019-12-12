@@ -1,0 +1,16 @@
+Hacer un script que me muestre la partición principal del disco, especificando en
+Kbyte:
+- Cantidad de bloques
+- Bloques usados
+- Bloques disponibles
+
+#!/bin/bash
+
+echo "Cantidad de Bloques"
+df | awk '{print $2}'
+
+echo "Bloques Usados"
+df | awk '{print $3}'
+
+echo "Bloques Disponibles"
+df | awk '{print $4}'
