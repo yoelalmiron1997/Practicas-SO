@@ -1,0 +1,40 @@
+Hacer un programa en lenguaje C que me permita manejar a través de 2 procesos distintos ( Crear 2 Hilos) una
+variable llamada “contador“ inicializada en 0 compartida por ambos hilos, en uno de esos hilo de ejecución esa
+variable se incrementa, y por el otro hilo se decrementa, si hacemos por ejemplo 10000 iteraciones en los dos hilos
+sobre esa misma variable contador, y ejecutamos nuestro programa varias veces podremos observar que rara vez
+esa variable queda en 0 como quisiéramos que ocurra. Para que esto suceda debemos sincronizar a través de un
+semáforo la ejecución de estos hilos para que dicha variable siempre quede en 0.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <semaphore.h>
+
+static void * thread_2_function(void* arg);
+static void * thread_1_function(void* arg);
+
+int main(){
+        int contador;
+        pthread_t hilo_1, hilo_2;
+        pthread_create(&hilo_2, NULL, thread_2_function, &contador);
+        pthread_create(&hilo_1, NULL, thread_1_function, &contador);
+        pthread_join(hilo_2, NULL);
+        pthread_join(hilo_1, NULL);
+return 0;
+}
+
+static void *thread_1_function(void *arg){
+        int a = ((int)arg);
+        for (int i = 1; i <= 10; i++){
+                a = a + 1;
+        }
+        printf("El contador del hilo 1 es = %d \n", a);
+}
+
+static void * thread_2_function(void *arg){
+        int b = ((int)arg);
+        for (int i = 1; i <= 10; i++){
+                b = b - 1;
+        }
+        printf("El contador del hilo 2 es = %d \n", b);
+}
