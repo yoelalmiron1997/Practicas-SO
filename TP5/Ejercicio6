@@ -1,0 +1,17 @@
+Hacer un scripts que me permita indicarle por parámetro si quiero habilitar o deshabilitar la memoria swap
+
+#!/bin/bash
+
+if [ $1 -eq 1 ];then
+sysctl -w vm.swappiness=0
+#swapoff -a
+fi
+
+if [ $1 -eq 2 ];then
+sysctl -w vm.swappiness=50
+fi
+
+if [ $1 -eq 3 ];then
+sysctl -w vm.swappiness=100
+swapon -a
+fi
