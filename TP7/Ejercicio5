@@ -1,0 +1,22 @@
+
+Explicar que método de RAID de disco duplica la velocidad de lectura de datos, y piense
+para que tipo de aplicación puede ser más útil.
+
+
+el denominado Nivel 0 o conjunto dividido. En este caso, no tenemos redundancia de datos, ya que la función de este nivel 
+es la de distribuir los datos que se almacenan entre los distintos discos duros que están conectados al equipo.
+
+El objetivo de implementar un RAID 0 es la de proporcionar buenas velocidades de acceso a los datos que estén guardados 
+en los discos duros, ya que la información esta equitativamente repartida en ellos para tener acceso simultáneo a mayor 
+cantidad de datos con sus discos funcionando en paralelo.
+
+RAID 0 no tiene información de paridad ni redundancia de datos, por lo que, si se rompe una de las unidades de almacenamiento,
+perderemos todos los datos que había en su interior, a menos que tengamos realizadas copias de seguridad externas a esta configuración.
+
+Para realizar un RAID 0 debemos de prestar atención al tamaño de los discos duro que lo forman. En este caso será el 
+disco duro de menor tamaño el que determine el espacio añadido en el RAID. Si tenemos un disco duro de 1 TB y otro de 500 GB en la 
+configuración, el tamaño del conjunto funcional será de 1 TB, cogiendo el disco duro de 500 GB y otros 500 GB del disco de 1 TB. 
+Es por esto que lo ideal será utilizar discos duros de igual tamaño para poder utilizar todo el espacio disponible en el conjunto diseñado.
+
+
+
