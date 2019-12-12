@@ -1,0 +1,19 @@
+Hacer un script que luego de ejecutarse pida al usuario 2 números y después presente la
+suma, resta, producto y división de los mismos
+
+#!/bin/bash
+
+echo "Ingrese 1er numero"
+read a
+echo "Ingrese 2do numero"
+read b
+s=$[$a+$b]
+r=$[$a-$b]
+d=$[$a/$b]
+let m=$a\*$b
+
+echo "La suma es:"$s
+echo "La resta es:"$r
+echo "La division es:"$d
+echo "La Multiplacion es:"$m
+
