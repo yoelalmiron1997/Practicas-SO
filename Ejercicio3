@@ -1,0 +1,16 @@
+Realizar un script que evalúe 2 archivos ordinarios, e indique entre ambos cual posee más cantidad
+de líneas.
+
+#!/bin/bash
+echo "Ingrese el 1er archivo"
+read a
+echo "Ingrese el 2do archivo"
+read b
+                a=$(find $a | wc -l)
+                b=$(find $b | wc -l)
+        if [ $a -gt $b ]; then
+                echo "El que contiene mas lineas es:"$1
+        else
+                echo "El que contiene mas lineas es:"$2
+        fi
+
