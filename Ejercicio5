@@ -1,0 +1,11 @@
+Hacer un script que indique la cantidad de archivos y directorios que hay en un directorio cualquiera
+pasado como argumento, usando estructuras repetitivas.
+#!/bin/bash
+
+if [ -d $1 ]; then
+        find $1 | wc -l
+else
+        echo "No es un directorio"
+fi
+
+
