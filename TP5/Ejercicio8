@@ -1,0 +1,15 @@
+Hacer un scripts que me permita chequear cada 5 segundos el estado de la memoria libre, en caso que la misma
+llegue a un determinado valor ingresado como parámetro al ejecutar el scripts, dispare una alerta en el servidor (En este
+caso un mensaje por pantalla).
+
+#!/bin/bash
+while [ 1 ]; do
+        mem=$(free -m | head -n 2| tail -1 | cut -c 40-43)
+        echo "La memoria libre es de: $mem"
+        if [ $mem -le $1 ]; then
+                echo "Alerta, la memoria libre alcanzo el valor ingresado"
+                exit
+        else
+                sleep 5
+        fi
+done
