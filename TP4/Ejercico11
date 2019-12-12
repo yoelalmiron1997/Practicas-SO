@@ -1,0 +1,24 @@
+Crear una rutina en lenguaje C, donde se cree un proceso hijo, ademas de imprimir los PID del padre e
+hijo, el hijo debe ejecutar el comando listar directorio con el parámetro “la” y mostrar la salida del mismo por
+pantalla y el padre debe crear una carpeta en el directorio corriente de nombre “MisDocumentos”, y un
+archivo de nombre “procesos” dentro de “MisDocumentos”
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+int main(){
+        pid_t pid;
+        if ((pid = fork()) == 0 )
+        {
+                printf("Soy el hijo mi ID es: %d, y mi padre es: %d \n",getpid(),getppid());
+                system("ls -la /documentos/");
+        }
+        else
+        {
+                system("mkdir /documentos/practicas/tp4/MisDocumentos");
+                system("touch /documentos/practicas/tp4/MisDocumentos/procesos.txt");
+        }
+return 0;
+}
