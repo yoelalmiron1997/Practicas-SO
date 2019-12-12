@@ -1,0 +1,13 @@
+Usando una estructura repetitiva recorrer un directorio cualquiera pasado por parámetro y
+determinar que archivos fueron modificados (Comnado stat) en un mes determinado.
+Dicho mes también pasarlo por parámetro.
+
+#!/bin/bash
+
+for i in $1/* do
+        if [ -f $1 ]; then
+        a=$(stat -c%y$i | cut -d"-" -f2)
+        echo $a
+        fi
+#echo $1
+done
