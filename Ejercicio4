@@ -1,0 +1,19 @@
+Idem anterior pero pasando los archivos por parámetro
+
+#!/bin/bash
+
+if [ -f $1 -a $2 ]; then
+                a=$(find $1 | wc -l)
+                b=$(find $2 | wc -l)
+        if [ $a -gt $b ]; then
+                echo "El que contiene mas lineas es:"$1
+        else
+                echo "El que contiene mas lineas es:"$2
+        fi
+else
+        echo "No es un archivo ordinario"
+fi
+
+
+
+
