@@ -6,13 +6,7 @@ d) Comprimir y empaquetar el archivo process y solousu como proc-usu.tar.gz
 
 #!/bin/bash
 
-if [ -n "$1" ]; then
-        ps -U $1 -u $1
-        exit
-elif [ "root" = "$1" ]; then
-        echo "Error"
-        exit
-elif [ -z "$1" ]; then
-        ps aux
-        exit
-fi
+touch process.txt
+ps aux >> process.txt
+cut -c -15 process.txt >> solousu.txt
+tar cvzf proc-usu.tar.gz process.txt solousu.txt
