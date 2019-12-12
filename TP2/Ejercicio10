@@ -1,0 +1,23 @@
+Tomar el archivo passwd copiado en el tp1 y utilizarlo en un script que permita simular dar de alta un
+usuario en términos de:
+Info01:x:uid:guid: :/home/info01:/bin/bash
+El usuario info01 debe ser pasado como argumento.
+
+#!/bin/bash
+
+clear
+echo "Ingrese la cuenta para dar de alta:"; read cuenta
+echo "Ingrese un nombre para esta cuenta:"; read nombre
+
+for i in cat /etc/passwd | cut -d: -f1;do
+if [ $cuenta = $i ]; then
+        echo "existe"
+exit
+fi
+done
+mkdir /home/$cuenta
+cp /etc/profile /home/$cuenta
+iduser=tail -1 /etc/passwd | cut -d: -f3
+let iduser++
+idgrupo=tail -1 /etc/group | cut -d: -f3
+let idgrupo++
