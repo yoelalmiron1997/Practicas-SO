@@ -1,0 +1,13 @@
+Hacer un script que genere un backup los días hábiles de la semana a las 0 horas, del
+directorio practicas, dejando en archivos separados las carpetas TP1, TP2 y TP3,
+además el nombre del archivo de backup debe tener concatenada la fecha de
+realización.
+
+echo "Los Backups son del TP1,TP2,TP3"
+echo "---INICIANDO---"
+sleep 100
+tar -czvf TP1.tar.gz /documentos/practicas/tp1
+tar -czvf TP2.tar.gz /documentos/practicas/tp2
+tar -czvf TP3.tar.gz /documentos/practicas/tp3
+
+echo "---FIN DEL BACKUP---"
