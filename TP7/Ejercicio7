@@ -1,0 +1,10 @@
+Hacer un script que cambie los bits de permanencia sobre un archivo cualquiera
+pasado como parámetro.
+a) Al dueño
+b) Al grupo
+c) A otros
+
+
+#!/bin/bash
+
+chmod a+s $1
