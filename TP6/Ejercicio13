@@ -1,0 +1,17 @@
+Escribir un script que genere un archivo con información en forma separada de:
+a. Arquitectura del procesador
+b. Nombre de la maquina
+c. El sistema operativo instalado
+d. La versión del kernel
+
+#!/bin/bash
+
+echo "Procesador"
+uname -p
+echo "Nombre De la Maquina"
+uname -m
+echo "Sistema Operativo"
+uname -o
+echo "Kernel"
+uname -s
+
