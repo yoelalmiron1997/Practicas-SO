@@ -1,0 +1,6 @@
+Escribir un script que modifique sobre un archivo cualquiera pasado por parámetros el
+dueño, el grupo y le deje solo lectura a otros.
+
+#!/bin/bash
+
+chmod o-xrw,g-xrw,o+r $
