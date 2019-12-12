@@ -1,0 +1,10 @@
+Hacer un script que me informe los tipos de particiones que tiene el disco, y ademas los
+tamaños en megabyte de las mismas.#!/bin/bash
+
+echo "Las particiones son"
+echo "-----------------"
+fdisk -l -u |awk 'BEGIN{print "Las Particiones son:"}{print $1}'|tail -3
+echo "Los tamanios en MB "
+echo "-----------------"
+fdisk -l -u |awk '{print $5/1024 }'|tail -2
+fdisk -l -u |awk '{print $6/1024 }'|tail -3 |head -1
