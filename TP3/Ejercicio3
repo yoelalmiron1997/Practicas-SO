@@ -1,0 +1,5 @@
+Guardar solo los nombres de aquellos archivos que tengan permisos igual a 644
+pertenecientes al directorio raíz de su perfil de usuario.
+#!/bin/bash
+
+find /documentos/practicas/tp2 -name '*.sh' -exec chmod 751 {} \;
