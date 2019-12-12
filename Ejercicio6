@@ -1,0 +1,15 @@
+Hacer un scripts que realice los siguientes pasos:
+- Descomprimir el directorio tp1 de la practica 1 en un directorio llamado nuevo
+- Del archivo cmd.txt sacar las líneas que corresponden al comando ls y guardarlas en el archivo
+“listado”
+- Comprimir el archivo “listado”
+
+#!/bin/bash
+
+if [ -d nuevo ]; then
+        rm -r nuevo
+fi
+mkdir nuevo
+tar xzvf /documeentos/prcticas/tp1.tar.gz -C /documentos/preacticas/tp1/nuevo
+grep ls nuevo/cmd.txt > nuevo/listado.txt
+
