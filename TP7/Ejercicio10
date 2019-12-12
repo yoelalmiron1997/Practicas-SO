@@ -1,0 +1,14 @@
+Realizar un script que busque en un directorio cualquiera pasado como par  metro, los
+archivos *.mp3 y los borre, ademas que busque los archivos que tienen permisos 744 y
+los mueva a un directorio llamado  exe
+
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+echo "Ingrese un parametro"
+
+fi
+
+find $1  -perm 744  -exec mv {$1} exe \;
+find $1  -name "*.mp3" -exec rm -r {$1}\;
