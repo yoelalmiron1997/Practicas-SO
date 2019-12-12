@@ -1,0 +1,18 @@
+3. Hacer un script que realice los siguientes pasos:
+a) Crear un archivo de nombre process (usando comando de creación de archivos).
+b) En el archivo process agregar todos los procesos que se están ejecutando en el sistema
+c) Del archivo process cortar el nombre usuario y PID y mandarlos al archivo solousu
+d) Comprimir y empaquetar el archivo process y solousu como proc-usu.tar.gz
+
+#!/bin/bash
+
+if [ -n "$1" ]; then
+        ps -U $1 -u $1
+        exit
+elif [ "root" = "$1" ]; then
+        echo "Error"
+        exit
+elif [ -z "$1" ]; then
+        ps aux
+        exit
+fi
