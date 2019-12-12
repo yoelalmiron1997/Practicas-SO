@@ -1,0 +1,11 @@
+Como se sabe en una empresa aérea la información es de vital importancia, por lo tanto dichos
+datos están alojadas en lo que se denominan storage de disco. Decir que tipo de RAID de disco
+aconsejaría, además explicar como funciona el tipo de RAID elegido.
+
+ELEGIMOS EL RAID 0+1
+RAID 01 o espejo de divisiones. Consiste b  sicamente en un nivel principal de tipo RAID 1 que hace las funciones de replicar los datos que se encuentran en un primer subnivel
+en un segundo.
+A su vez existir   un subnivel RAID 0 que har   las funciones propias de   ste, es decir, almacenar los datos de forma distribuida entre las unidades que en   l se encuentran.
+De esta forma tenemos un nivel principal que hace la funci  n de espejo y subniveles que hacen la funci  n de divisi  n de datos. De esta forma cuando un disco duro falla,
+los datos estar  n perfectamente guardados en el otro RAID 0 de espejo.
+
