@@ -1,0 +1,31 @@
+Realizar una rutina en lenguaje C que pida cargar un vector de 10 elementos numéricos y los devuelva
+ordenado de menor a mayor. 
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<ctype.h>
+int main(){
+        int dou[10];
+        int menor;
+        int numedou;
+        int aux;
+        int x;
+        int y;
+        for(int i = 0; i <= 10; i++){
+                printf("Ingrese un numero:\n");
+                scanf("%d",numedou);
+                dou[i] = numedou;
+                }
+        for(int x = 0; x <= 10; x++){
+                for(y = x+1; y < 10 - 1; y++){
+                        if(dou[x] > dou[y]){
+                                aux = dou[x];
+                                dou[x] = dou[y];
+                                dou[y]= aux;
+                        }
+                }
+        }
+        for(int j = 0; j <= 10; j++){
+                printf("numedou ordenadou: %d\n", dou[j]);
+        }
