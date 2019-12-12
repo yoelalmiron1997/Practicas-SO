@@ -1,0 +1,14 @@
+Dado el siguiente informe:
+Device Boot Start End Block Id System
+/dev/hda1 1 1305 10482381 7 HPFS/NTFS
+/dev/hda2 1306 2429 9028530 83 Linux
+/dev/hda3 2430 2494 522112 83 Linux Swap
+Indicar:
+a- Cantidad de discos rígidos
+b- Indicar cantidad de particiones de cada disco
+c- Describir los tipos de particiones que se muestran
+
+----RESPUESTA-----------------------------
+a)Hay un disco rigido
+b)Hay 3 particiones de un solo disco
+c)La primera particion es una de windows, la segunda es de linux, y la tercera es la particon de intercambio de linux
