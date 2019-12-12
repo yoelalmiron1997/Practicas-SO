@@ -1,0 +1,13 @@
+Programe un scripts que me identifique si en servidores Linux se encuentra instalado el comando “dmidecode”, en
+caso de estar instalado me determine la cantidad máxima de memoria física que puedo instalar en ese servidor, y el
+tamaño máximo del módulo de memoria que puedo que acepta dicho servidor. En caso de no estar instalado correr el
+comando necesario para hacerlo y determinar lo solicitado anteriormente.
+
+#!/bin/bash
+
+if [ $(which dmidecde) -n]; then
+        echo "La capacidad maxima de memoria es: $(dmidecode -t memory | head -13 | tail -1 | awk '{print $5}')"
+else
+        apt-get install dmidecode
+        echo "La capacidad maxima de memoria es: $(dmidecode -t memory | head -13 | tail -1 | awk '{print $5}')"
+fi
