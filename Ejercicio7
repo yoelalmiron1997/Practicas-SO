@@ -1,0 +1,5 @@
+Hacer un scripts que recorra el directorio tp1 copiado anteriormente y busque todos los archivos con
+extencion .txt y le asigne permiso de escritura a otros
+#!/bin/bash
+
+find /documetos/practicas/tp2 -name "*.txt" exec chmod 777 {} \;
