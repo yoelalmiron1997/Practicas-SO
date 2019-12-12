@@ -1,0 +1,23 @@
+Crear una rutina en lenguaje C donde se crea un proceso hijo, esta rutina debe tener como salida lo
+siguiente:
+Soy el hijo, “Nro de mi ProcessID”, Mi Padre es “ProcessID del Padre”
+Soy el padre, “Nro de mi ProcessID”, Mi Padre es “ProcessID del Padre del Padre” 
+
+#include<unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+int main (){
+        int pd;
+        pd=fork();
+
+        if(pd >0){
+        printf("soy el proceso hijo %d  y su padre es %d \n",getpid(),getppid());while(1);
+        }else{
+                if(pd == 0){
+                        printf("soy el proceso hijo %d y su padre es %d  \n",getpid(),getppid());while(1);
+                        }else{
+                        printf("ERROR \n");
+                        }
+        }
+}
