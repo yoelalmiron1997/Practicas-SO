@@ -1,0 +1,18 @@
+Hacer un script que guarde en el archivo conectados todos los usuarios conectados al sistema y si
+al script le paso como parámetro un usuario cualquiera me informe solamente este usuario y la hora
+de conexión al servidor.
+
+#!/bin/bash
+
+if [ ! $1 ];then
+echo "NO ingresaste"
+w |awk -F"," '{print $3}'>>conectado.txt
+w |awk -F" " '{ print $1  }' |head -1>>conectado.txt
+else
+echo "SI ingresaste"
+w $1 |awk -F"," '{ print $3 }'
+w $1 |awk -F" " '{ print $1  }' |head -1
+
+
+fi
+
