@@ -1,0 +1,13 @@
+Hacer un scripts que me informe:
+a) Total de memoria del sistema
+b) Total de memoria usada
+c) Total de memoria libre
+d) Dejar el informe en un archivo llamado “Informe de RAM”
+Usar comando free para resolverlo
+
+#!/bin/bash
+
+free -m | awk '{print $2}'>>salida4.txt
+free -m | awk '{print $3}'>>salida4.txt
+free -m | awk '{print $4}'>>salida4.txt
+
