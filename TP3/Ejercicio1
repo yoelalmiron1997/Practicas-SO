@@ -1,0 +1,11 @@
+- Guardar las variables de entorno HOSTNAME, HOME, LOGNAME Y PATH en un
+archivo de nombre var-set ordenado por nombre de variable.
+
+#!/bin/bash
+
+echo $PATH >>./var-set
+echo $HOME >>./var-set
+echo $HOSTNAME >>./var-set
+echo $LOGNAME >>./var-set
+
+sort var-set
