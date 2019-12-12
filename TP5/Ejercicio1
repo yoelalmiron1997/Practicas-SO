@@ -1,0 +1,32 @@
+a) Hacer un programa en lenguaje C que me permita manejar a través de 2 procesos distintos (Crear 2 Hilos) la
+impresión de dos frases:
+a) “Primero aprendo lenguaje C” (hilo 1)
+b) “Segundo tratare de aprender Semaforos” (Hilo 2)
+ Como en la realidad no sabemos que hilo se va a ejecutar primero, debemos sincronizar a través de un semáforo
+que primero se ejecute el punto a y luego el b
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+static void * thread_2_function(void *arg);
+static void * thread_1_function(void *arg);
+
+int main(void){
+        pthread_t hilo_1, hilo_2;
+        pthread_create(&hilo_2, NULL, thread_2_function, NULL);
+        pthread_create(&hilo_1, NULL, thread_1_function, NULL);
+        pthread_join(hilo_2, NULL);
+        pthread_join(hilo_1, NULL);
+return 0;
+}
+
+static void * thread_1_function(void *arg){
+        printf("primero aprendo lenguaje C\n");
+}
+
+static void * thread_2_function(void *arg){
+        printf("Segundo, tratare de aprender semaforos\n")}
