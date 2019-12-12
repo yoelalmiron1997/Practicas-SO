@@ -1,0 +1,13 @@
+Crear un scripts simple que me genere un bucle infinito, luego hacer lo siguiente:
+a) Ejecutar el mismo en segundo plano
+b) Ejecutar el comando para ver los procesos en ejecución
+b) Ejecutar el comando para verificar el proceso en forma online
+c) Matar el proceso ejecutado en el punto a 
+
+#!/bin/bash
+a=1
+while[$a -gt 0];
+let a=a+1000000
+echo $a
+sleep 100000000000000000000000000000000000000000000000
+done
