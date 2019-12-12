@@ -1,0 +1,6 @@
+#Crear el directorio tp2 dentro de practicas y realizar un script que muestre por pantalla
+#“Estoy aprendiendo lenguaje scripting” .
+
+#!/bin/bash
+
+echo "estoy aprendiendo scripting"
