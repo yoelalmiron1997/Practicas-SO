@@ -1,0 +1,103 @@
+Enunciado del problema
+Realizar un programa USUARIOS compilado en C ansi de Linux para ABM-usuarios, debe ser presentado para su defensa el Lunes 12 de Agosto.
+
+
+#include<fcntl.h>
+#include<unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<ctype.h>
+
+void crearusuario(){
+        char resp[20];
+        char buf[50];
+        printf("Introduzca el nombre del usuario a crear: \n");
+        printf("Maximo 20 caracteres\n");
+        scanf("%s", resp);
+        snprintf(buf, sizeof(buf), "adduser %s", resp);
+        system(buf);
+}
+
+void cambiarcontra(){
+        char resp[20];
+        char buf[50];
+        printf("Introduzca el nombre del usuario a modificar: \n ");
+        scanf("%s", resp);
+        snprintf(buf, sizeof(buf), "passwd %s", resp);
+        system(buf);
+}
+
+void borrarusuario(){
+        char resp[20];
+        char buf[50];
+        char buf2[60];
+        printf("Introduzca el nombre del usuario a borrar: \n");
+        scanf("%s", resp);
+        snprintf(buf, sizeof(buf), "userdel %s", resp);
+        system(buf);
+        snprintf(buf2, sizeof(buf2), "rm -R /home/%s", resp);
+        system(buf2);
+}
+
+void MostrarUsuario(){
+        char resp[20];
+        char buf[60];
+        printf("Introduzca el usuario a mostrar: \n");
+        scanf("%s", resp);
+        snprintf(buf, sizeof(buf), "getent passwd %s", resp);
+        system(buf);
+}
+
+int validar(char numero[]){
+    int i;
+    for(i=0; i<strlen(numero);i++){
+        if(!(isdigit(numero[i]))){
+        printf("Solo se aceptan valores numericos\n");
+        return 0;
+        }
+    }
+return 1;
+}
+
+int main(){
+    char numero[5];
+    int numerovalido;
+    int n;
+    while(n!=9){
+            printf("MENU PRINCIPAL\n");
+            printf("-----------------\n");
+            printf("1) Crear Usuario\n");
+            printf("2) Modificar Usuario \n");
+            printf("3) Borrar Usuario\n");
+            printf("4) Mostrar Usuario\n");
+            printf("9) Salir\n");
+            printf("ingrese un numero \n");
+            scanf("%s",numero);
+            n=validar(numero);
+		numerovalido=atoi(numero);
+		switch (numerovalido){
+			case 1:
+				crearusuario();
+				break;
+			case 2:
+				cambiarcontra();
+				break;
+			case 3:
+				borrarusuario();
+				break;
+			case 4:
+				MostrarUsuario();
+				break;
+			case 9:
+				printf("Saliendo del programa. Terminando ejecucion\n");
+				exit(1);
+				break;
+			default:
+				printf("Opcion incorrecta \n");
+				break;
+		}
+    }
+return 1;
+}
+
