@@ -1,0 +1,43 @@
+Escriba una rutina en lenguaje C, donde se crean dos procesos cualesquiera (hilos), estos procesos serian
+lanzados en paralelo. Implemente un semáforo para ambos procesos, donde se garantice la exclusión mutua entre
+ambos procesos
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <semaphore.h>
+
+static void * thread_1_function(void* arg);
+static void * thread_2_function(void* arg);
+
+static int contador = 0;
+sem_t sem1;
+
+int main(void){
+        pthread_t hilo_1, hilo_2;
+        sem_init(&sem1, 0, 1);
+        pthread_create(&hilo_1, NULL, *thread_1_function, NULL);
+        pthread_create(&hilo_2, NULL, *thread_2_function, NULL);
+        pthread_join(hilo_1, NULL);
+        pthread_join(hilo_2, NULL);
+        printf("EL valor del contador siempre va a ser 0, a pesar de ser modificado en 2 hilos distintos \n");
+        printf("El contador vale: %d \n", contador);
+
+return 0;
+}
+
+static void * thread_1_function(void* arg){
+        for(int i = 0; i <= 10; i++){
+        sem_wait(&sem1);
+        contador += 1;
+        sem_post(&sem1);
+        }
+}
+
+static void * thread_2_function(void* arg){
+        for(int i = 0; i <= 10; i++){
+        sem_wait(&sem1);
+        contador -= 1;
+        sem_post(&sem1);
+        }
+}
