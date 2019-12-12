@@ -1,0 +1,20 @@
+Crear una rutina en lenguaje C donde se crea un proceso hijo y muestre su Id de proceso por pantalla,
+dibujar el árbol de ejecución en un documento con el Id de cada proceso (Principal, padre e hijos).
+- Idem 2 procesos hijos
+
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
+int a;
+int main(){
+        pid_t pid;
+        if ((pid = fork()) == 0)
+        {
+                a = getpid();
+                printf("El Process Id es: %d \n", a);
+                system("pstree -H (getpid())");
+        }
+return 0;
+}
