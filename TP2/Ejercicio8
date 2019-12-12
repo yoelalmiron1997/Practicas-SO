@@ -1,0 +1,11 @@
+Implementar con un script el punto 6 de la parte B de la practica 1
+
+#!/bin/bash
+
+if [ -f perfil.txt ]; then
+        rm perfil.txt
+fi
+
+echo $SHELL >>perfil.txt
+cat /etc/group | cut -f1 | tail -1 >>perfil.txt
+cat /etc/passwd | cut -c8-16 | tail -1>> perfil.txt
