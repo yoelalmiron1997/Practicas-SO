@@ -1,0 +1,10 @@
+Hacer un script que me informe la dirección física, la dirección IP y la mascara de subred
+de la placa de red.( ifconfig)
+
+#!/bin/bash
+
+echo "La IP de RED"
+ifconfig | awk '{print $2}'|head -n 2 |tail -1
+echo "La PLACA de RED"
+ifconfig | awk '{print $2}'|head -n 3 |tail -1
+
