@@ -1,0 +1,7 @@
+Utilizando el CRON escribir un script que me genere cada dos minutos un archivo de
+nombre “archi||Hora-actual”. Luego de probado dejar el archivo crontab vacio
+
+
+#!/bin/bash
+
+*/2 * * * * usuario /home/usuario/scripts/actualizar.sh
