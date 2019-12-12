@@ -1,0 +1,16 @@
+Dado un directorio cualquiera pasado por parámetro, crear un script que me
+devuelva el nombre del archivo más grande y su correspondiente tamaño.
+
+#!/bin/bash
+
+if [ $# -eq 1 ];then
+echo "El tamanio del archivo mas grande es "
+echo "------------------------"
+du -h $1 |sort | tail -1 |cut -c1,2,3
+echo "El nombre del archivo es "
+echo "------------------------"
+du -h $1 |sort | tail -1 |awk '{print $2}'
+
+else
+        echo  "tenes que poner un argumento"
+fi
