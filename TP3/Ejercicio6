@@ -1,0 +1,12 @@
+- Hacer un informe de un directorio cualquiera pasado por parámetro que indique:
+a) Que archivos han sido modificados en los últimos 30 minutos
+b) Que archivos han sido accedidos en los últimos 60 minutos.
+c) Que archivos han sido modificados en los últimos 5 dias
+d) Que archivos han sido modificados en los últimos 10 dias
+
+#!/bin/bash
+
+find /documentos/practicas/ -mmin -30 > 30min
+find /documentos/practicas/ -mmin -60 > 60min
+find /documentos/practicas/ -mtime -5 > 5dias
+find /documentos/practicas/ .mtime -10 > 10dias
