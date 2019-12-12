@@ -1,0 +1,13 @@
+Hacer un script que realice los siguientes pasos:
+- Limpiar la pantalla
+- Copiar el archivo hosts desde /etc/ a su perfil
+- Quedarse con la ultima línea del archivo “hosts” y cortar la dirección IP
+- En un archivo de texto guardar lo siguiente:
+La dirección IP de mi maquina es: 172.x.x.x 
+#!/bin/bash
+clear
+
+cp /etc/hosts /documentos/Practicas/tp2
+touch direccionip.txt
+echo "La direccion IP de mi maquina es: " >> direccionip.txt
+tail -1 hosts | cut -f1 >> direccionip.txt
