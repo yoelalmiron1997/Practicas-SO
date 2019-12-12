@@ -1,0 +1,38 @@
+Hacer un scripts que me permita tomar la decisión de cambiar los niveles de intercambio entre la memoria swap y la
+RAM, en este caso el scripts me debe solicitar al ejecutarlo:
+- 0% de nivel de intercambio.
+- 50% de nivel de intercambio.
+- 100% de nivel de intercambio.
+Tener en cuenta que si el sistema operativo se reinicia debe volver a los valores por defecto
+
+#!/bin/bash
+
+echo "1 en 0"
+echo "2 en 50"
+echo "3 en 100"
+
+while :
+do
+        read entrada
+        case  $entrada in
+        1)
+        swappines=0
+        exit
+        ;;
+        2)
+        swappines=50
+        exit
+        ;;
+        3)
+        swappines=100
+        exit
+        ;;
+        *)
+        echo "no entiendo"
+        exit
+        ;;
+esac
+
+done
+echo
+echo "final"
