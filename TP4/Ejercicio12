@@ -1,0 +1,40 @@
+Crear una rutina en lenguaje C, donde me permita ejecutar varias sentencias fork(), para eso deberá
+ingresar por teclado la cantidad a ejecutar y usar la sentencia iterativa “for”:
+a) Que muestre por pantalla todos los procesos padre e hijos
+b) Que muestre solo los proceso del padre, haciendo una interrupción del “for”
+c) Que solamente un hijo puede crear procesos
+d) Que solo un hijo cree procesos en forma lineal
+// Crear varios procesos con fork(), en este caso observamos desde una
+// terminal como el padre crea los hijos, y solo el hijo que le indicamos
+// crea procesos en forma lineal, o sea ese hijo va creando procesos hacia abajo
+
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+int main()
+{
+    int i,j,k,n;
+    printf("Ingrese la cantidad de fork que desea\n");
+    scanf("%d",&n);
+    for ( i = 0; i < n; i++ ){
+        if(fork() == 0){
+            if(i == 1){
+                for( j=0; j < 2; j++){
+                    if(fork() == 0){
+                        if(j == 1){
+                            for( k=0; k < 2; k++){
+                               if(fork() != 0){
+                               break;
+                               }
+                            }
+                        }
+                    break;
+                    }
+                }
+            }
+            break;
+        }
+    }
+    while(1);
+}
