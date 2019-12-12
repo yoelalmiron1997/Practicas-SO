@@ -1,0 +1,10 @@
+Hacer un script que informe si un usuario cualquiera se conecto al servidor en el ultimo
+mes, ejercicio para usar el comando “last”
+
+#!/bin/bash
+
+echo "Los usuarios son : "
+echo "-------------------"
+echo " "
+
+last | awk '{print $1 "  " $3}'
