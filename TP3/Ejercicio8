@@ -1,0 +1,17 @@
+Compruebe si un directorio cualquiera pasado como argumento existe, en tal caso
+contabilizar la cantidad de archivos y directorios, guardar ambos contadores en un archivo.
+Usar una estructura repetitiva para resolverlo.
+
+#!/bin/bash
+
+echo $1
+
+if [ -d  $1 ]; then
+
+for dir in $1/*; do
+a=$(ls -a | wc -l) >> pepe.txt
+
+
+done
+fi
+
