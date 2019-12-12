@@ -1,0 +1,8 @@
+Muestre los números naturales del 1-20
+
+#!/bin/bash
+ # Muestre los n  meros naturales del 1-20
+for (( i=1; i<21; i++ ))
+do
+        echo $i
+done
