@@ -14,3 +14,19 @@ read b
                 echo "El que contiene mas lineas es:"$2
         fi
 
+#Lo volvi a hacer porque lo tenia mal
+
+#Este es el que esta bien
+#!/bin/bash
+
+echo "------EJERCICIO 3 DEL TP2----"
+
+valor1=$(cat archivo1 | wc -l)
+valor2=$(cat archivo2 | wc -l)
+
+if [$valor1 -gt $valor2]; then
+        echo "El que contiene mas lineas es el archivo 1 con :" $valor1
+else
+        echo "El que contiene mas lineas es el archivo 2 con :" $valor2
+fi
+
