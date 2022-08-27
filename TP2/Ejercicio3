@@ -29,4 +29,14 @@ if [$valor1 -gt $valor2]; then
 else
         echo "El que contiene mas lineas es el archivo 2 con :" $valor2
 fi
+NUEVO
+#!/bin/bash
 
+a=$(cat ArchivosPrueba/Archivo1Mas|wc -l)
+b=$(cat ArchivosPrueba/Archivo2Men|wc -l)
+
+if [ "$a" > "$b" ];then
+echo "El archivo Mayor: Archivo1Mas con: "$a
+else
+echo "El archivo: Archivo2Men"
+fi
